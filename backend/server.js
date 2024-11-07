@@ -1,13 +1,14 @@
 const app = require('./app');
 const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 
-// Charger les variables d'environnement depuis le fichier .env
 dotenv.config();
 
-// Définir le port (par défaut 5000)
+// Connexion à la base de données
+connectDB();
+
 const PORT = process.env.PORT || 5000;
 
-// Démarrer le serveur
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
